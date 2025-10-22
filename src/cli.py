@@ -1,8 +1,9 @@
 from joblib import load
 import pandas as pd
+from config import MODEL_PATH as model_path
 
 # Load the trained model
-model = load('student_exam_score_model.joblib')
+model = load(model_path)
 
 # Get student features from user input
 hours_studied = float(input("Hours studiet: "))

@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from config import MODEL_PATH as model_path
 
 app = FastAPI()
 
@@ -19,7 +20,7 @@ def predict(student:Student):
     import pandas as pd
 
     # Load the trained model
-    model = load('student_exam_score_model.joblib')
+    model = load(model_path)
 
     # Create a DataFrame for the input features
     student_features = pd.DataFrame(
