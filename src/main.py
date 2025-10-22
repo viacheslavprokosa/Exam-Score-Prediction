@@ -15,12 +15,15 @@ def read_root():
     return {"Hello": "World"}
 
 @app.post("/predict")
-def predict(student:Student):
+def predict(student: Student):
     from joblib import load
     import pandas as pd
 
     # Load the trained model
-    model = load(model_path)
+    try:
+        model = load(model_path)
+    except FileNotFoundError:
+        return {"error": f"Model file not found at '{model_path}'. Please train the model first."}
 
     # Create a DataFrame for the input features
     student_features = pd.DataFrame(

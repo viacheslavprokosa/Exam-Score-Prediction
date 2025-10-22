@@ -6,7 +6,7 @@ from config import MODEL_PATH as model_path
 model = load(model_path)
 
 # Get student features from user input
-hours_studied = float(input("Hours studiet: "))
+hours_studied = float(input("Hours studied: "))
 sleep_hours = float(input("Sleep hours: "))
 attendance_percent = float(input("Attendance percent (%): "))
 previous_scores = float(input("Previous scores: "))
